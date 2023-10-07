@@ -13,8 +13,8 @@ import jakarta.validation.constraints.NotBlank;
 public class CardRequest {
 
     @NotBlank
-    private String number;
+    private String numeroCartao;
 
     @NotBlank
-    private String password;
+    private String senha;
 }

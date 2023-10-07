@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("cards")
+@RequestMapping("cartoes")
 public class CardController {
 
     @Autowired
@@ -23,7 +23,7 @@ public class CardController {
 
     @PostMapping
     public ResponseEntity<CardResponse> save(@RequestBody @Valid CardRequest cardRequest) {
-        return new ResponseEntity<>(cardService.save(cardRequest), HttpStatus.OK);
+        return new ResponseEntity<>(cardService.save(cardRequest), HttpStatus.CREATED);
     }
 
 }
