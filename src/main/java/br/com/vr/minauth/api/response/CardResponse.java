@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CardResponse {
-    private String number;
+    private String numeroCartao;
 
-    private String password;
+    private String senha;
 }

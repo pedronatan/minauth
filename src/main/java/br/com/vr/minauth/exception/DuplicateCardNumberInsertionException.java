@@ -4,10 +4,10 @@ import br.com.vr.minauth.api.response.CardResponse;
 import lombok.Getter;
 
 @Getter
-public class DuplicateCardInsertionException extends RuntimeException{
+public class DuplicateCardNumberInsertionException extends RuntimeException{
     private CardResponse cardResponse;
 
-    public DuplicateCardInsertionException(CardResponse cardResponse) {
+    public DuplicateCardNumberInsertionException(CardResponse cardResponse) {
         this.cardResponse = cardResponse;
     }
 }

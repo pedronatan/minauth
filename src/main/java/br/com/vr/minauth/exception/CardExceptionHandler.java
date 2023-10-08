@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @ControllerAdvice
 public class CardExceptionHandler {
 
-    @ExceptionHandler(value = DuplicateCardInsertionException.class)
-    public ResponseEntity<CardResponse> handleDuplicateCardInsertionException(DuplicateCardInsertionException duplicateCardInsertionException){
-        return new ResponseEntity<CardResponse>(duplicateCardInsertionException.getCardResponse(),HttpStatus.UNPROCESSABLE_ENTITY);
+    @ExceptionHandler(value = DuplicateCardNumberInsertionException.class)
+    public ResponseEntity<CardResponse> handleDuplicateCardInsertionException(DuplicateCardNumberInsertionException duplicateCardNumberInsertionException){
+        return new ResponseEntity<CardResponse>(duplicateCardNumberInsertionException.getCardResponse(),HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    @ExceptionHandler(value = CardNotFoundException.class)
+    public ResponseEntity handleCardNotFoundException(){
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 }
