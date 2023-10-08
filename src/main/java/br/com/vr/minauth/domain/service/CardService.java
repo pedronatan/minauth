@@ -49,10 +49,22 @@ public class CardService {
         return cardRepository.findByNumber(number);
     }
 
+    public Optional<CardEntity> findByNumberAndPassword(String number, String password) {
+        return cardRepository.findByNumberAndPassword(number, password);
+    }
+
+    public Optional<CardEntity> findByNumberAndPasswordAndBalanceGreaterThanEqual(String number, String password, BigDecimal balance) {
+        return cardRepository.findByNumberAndPasswordAndBalanceGreaterThanEqual(number, password, balance);
+    }
+
     public BigDecimal getBalanceByNumber(String cardNumber) {
-        return cardRepository.findOneBalanceByNumber(cardNumber)
+        return cardRepository.findBalanceByNumber(cardNumber)
                 .map(CardBalanceView::getBalance)
                 .orElseThrow(CardNotFoundException::new);
+    }
 
+    public CardEntity subtractAmountFromBalance(CardEntity cardEntity, BigDecimal amount) {
+        cardEntity.setBalance(cardEntity.getBalance().subtract(amount));
+        return cardRepository.save(cardEntity);
     }
 }
