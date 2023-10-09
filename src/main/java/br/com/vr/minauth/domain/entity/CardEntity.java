@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
+@Builder
 public class CardEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

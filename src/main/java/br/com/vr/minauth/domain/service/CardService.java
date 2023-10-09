@@ -57,7 +57,7 @@ public class CardService {
         return cardRepository.findByNumberAndPasswordAndBalanceGreaterThanEqual(number, password, balance);
     }
 
-    public BigDecimal getBalanceByNumber(String cardNumber) {
+    public BigDecimal findBalanceByNumber(String cardNumber) {
         return cardRepository.findBalanceByNumber(cardNumber)
                 .map(CardBalanceView::getBalance)
                 .orElseThrow(CardNotFoundException::new);

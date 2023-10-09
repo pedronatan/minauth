@@ -1,7 +1,6 @@
 package br.com.vr.minauth.api.controller;
 
 import br.com.vr.minauth.api.request.TransactionRequest;
-import br.com.vr.minauth.api.response.CardResponse;
 import br.com.vr.minauth.domain.service.TransactionService;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("transacoes")
+@RequestMapping("/transacoes")
 public class TransactionController {
 
     @Autowired

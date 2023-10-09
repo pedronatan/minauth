@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 
 @RestController
-@RequestMapping("cartoes")
+@RequestMapping("/cartoes")
 public class CardController {
 
     @Autowired
@@ -29,6 +29,6 @@ public class CardController {
     @GetMapping(value = "/{numeroCartao}")
     @ApiResponses(value = {@ApiResponse(responseCode = "200"), @ApiResponse(responseCode = "404")})
     public ResponseEntity<BigDecimal> getBalanceByNumber(@PathVariable String numeroCartao){
-        return ResponseEntity.ok(cardService.getBalanceByNumber(numeroCartao));
+        return ResponseEntity.ok(cardService.findBalanceByNumber(numeroCartao));
     }
 }
